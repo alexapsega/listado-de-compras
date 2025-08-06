@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { FaPlus, FaMinus, FaTrash } from 'react-icons/fa';
-import * as ProductIcons from '../icons'; // Importaremos los íconos más adelante
+import * as ProductIcons from '../icons/productIcons'; // Importaremos los íconos más adelante
 
 const ItemWrapper = styled.div`
   overflow: hidden;

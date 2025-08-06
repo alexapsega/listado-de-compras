@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { iconMap } from '../icons';
+import { iconMap } from '../icons/productIcons';
 
 const FormContainer = styled.div`
   padding: 30px;
