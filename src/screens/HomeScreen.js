@@ -15,6 +15,15 @@ const HomeScreenContainer = styled.div`
   min-height: 100vh;
 `;
 
+const PrintSection = styled.div`
+  font-family: 'Arial', sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+`;
+
 const GenerateButton = styled.button`
   margin-top: 16px;
   padding: 8px 12px;
@@ -51,8 +60,10 @@ const HomeScreen = ({ products, updateQuantity, deleteProduct }) => {
   const blobUrl = pdf.output('bloburl');
   window.open(blobUrl, '_blank');
 };
-  return (
-    <HomeScreenContainer ref={printRef}>
+ return (
+  <HomeScreenContainer>
+    {/* Solo dentro del PrintSection*/}
+    <PrintSection ref={printRef}>
       <Header />
       <ProductList
         products={products}
@@ -60,10 +71,13 @@ const HomeScreen = ({ products, updateQuantity, deleteProduct }) => {
         deleteProduct={deleteProduct}
       />
       <Total products={products} />
-      <GenerateButton onClick={handleGeneratePdf}>
-          Generar PDF
-      </GenerateButton>
-    </HomeScreenContainer>
+    </PrintSection>
+
+    {/* El botón sigue en pantalla, fuera de la sección de impresión */}
+    <GenerateButton onClick={handleGeneratePdf}>
+      Generar PDF
+    </GenerateButton>
+  </HomeScreenContainer>
   );
 };
 
